@@ -1,0 +1,96 @@
+Errors are coming up with the generated C++ code: 
+
+ g++ ./code-translation/linear_regression.cpp -o linear_regression -I ./eigen -I ./matplotlib-cpp -I C:/Users/"Tarun Vikas"/AppData/Local/Programs/Python/Python310/include -I C:/Users/"Tarun Vikas"/AppData/Local/Programs/Python/Python310/Lib/site-packages/numpy/core/include -L C:/Users/"Tarun Vikas"/AppData/Local/Programs/Python/Python310/libs -l p
+ython310 
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h:354:20: error: redefinition of 'struct matplotlibcpp::detail::select_npy_type<long long int>'
+ template <> struct select_npy_type<long long> { const static NPY_TYPES type = NPY_INT64; };
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:345:20: error: previous definition of 'struct matplotlibcpp::detail::select_npy_type<long long int>'
+ template <> struct select_npy_type<int64_t> { const static NPY_TYPES type = NPY_INT64; };
+                    ^~~~~~~~~~~~~~~~~~~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:356:20: error: redefinition of 'struct matplotlibcpp::detail::select_npy_type<long long unsigned int>'
+ template <> struct select_npy_type<unsigned long long> { const static NPY_TYPES type = NPY_UINT64; };
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:349:20: error: previous definition of 'struct matplotlibcpp::detail::select_npy_type<long long unsigned int>'
+ template <> struct select_npy_type<uint64_t> { const static NPY_TYPES type = NPY_UINT64; };
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~
+./code-translation/linear_regression.cpp: In function 'int main()':
+./code-translation/linear_regression.cpp:90:29: error: no matching function for call to 'scatter(Eigen::DenseBase<Eigen::Matrix<double, -1, -1> >::ColXpr, Eigen::VectorXd&)'
+     plt::scatter(X.col(0), y);
+                             ^
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h:993:6: note: candidate: template<class NumericX, class NumericY> bool matplotlibcpp::scatter(const std::vector<t>&, const std::vector<NumericY>&, double, const std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&)
+ bool scatter(const std::vector<NumericX>& x,
+      ^~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:993:6: note:   template argument deduction/substitution failed:
+./code-translation/linear_regression.cpp:90:29: note:   'Eigen::DenseBase<Eigen::Matrix<double, -1, -1> >::ColXpr {aka Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, 1, true>}' is not derived from 'const std::vector<t>'
+     plt::scatter(X.col(0), y);
+                             ^
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h:1064:6: note: candidate: template<class NumericX, class NumericY, class NumericZ> bool matplotlibcpp::scatter(const std::vector<t>&, const std::vector<NumericY>&, const std::vector<NumericColors>&, double, const std::map<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >&, long int)
+ bool scatter(const std::vector<NumericX>& x,
+      ^~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:1064:6: note:   template argument deduction/substitution failed:
+./code-translation/linear_regression.cpp:90:29: note:   'Eigen::DenseBase<Eigen::Matrix<double, -1, -1> >::ColXpr {aka Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, 1, true>}' is not derived from 'const std::vector<t>'
+     plt::scatter(X.col(0), y);
+                             ^
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h: In instantiation of 'bool matplotlibcpp::detail::plot_impl<std::integral_constant<bool, true> >::operator()(const Iterable&, const Callable&, const string&) [with Iterable = Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, 1, true>; Callable = Eigen::Matrix<double, -1, 1>; std::__cxx11::string = std::__cxx11::basic_string<char>]':
+./matplotlib-cpp/matplotlibcpp.h:2865:70:   required from 'bool matplotlibcpp::plot(const A&, const B&, const string&, Args ...) [with A = Eigen::Block<Eigen::Matrix<double, -1, -1>, -1, 1, true>; B = Eigen::Matrix<double, -1, 1>; Args = {}; std::__cxx11::string = std::__cxx11::basic_string<char>]'
+./code-translation/linear_regression.cpp:91:44:   required from here
+./matplotlib-cpp/matplotlibcpp.h:2846:17: error: 'begin' was not declared in this scope
+         if(begin(ticks) == end(ticks)) return true;
+            ~~~~~^~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:2846:17: note: suggested alternative:
+In file included from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:40,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:41,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:42,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:38,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:39,
+                 from ./code-translation/linear_regression.cpp:43:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:105:37: note:   'std::begin'
+   template<typename _Tp> const _Tp* begin(const valarray<_Tp>&);
+                                     ^~~~~
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h:2846:31: error: 'end' was not declared in this scope
+         if(begin(ticks) == end(ticks)) return true;
+                            ~~~^~~~~~~
+./matplotlib-cpp/matplotlibcpp.h:2846:31: note: suggested alternatives:
+In file included from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\string:51:0,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\locale_classes.h:40,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\ios_base.h:41,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ios:42,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\ostream:38,
+                 from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\iostream:39,
+                 from ./code-translation/linear_regression.cpp:43:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\range_access.h:107:37: note:   'std::end'
+   template<typename _Tp> const _Tp* end(const valarray<_Tp>&);
+                                     ^~~
+In file included from ./eigen/Eigen/Core:300:0,
+                 from ./eigen/Eigen/Dense:1,
+                 from ./code-translation/linear_regression.cpp:44:
+./eigen/Eigen/src/Core/util/IndexedViewHelper.h:79:27: note:   'Eigen::placeholders::end'
+ static constexpr lastp1_t end = lastp1;
+                           ^~~
+In file included from ./code-translation/linear_regression.cpp:47:0:
+./matplotlib-cpp/matplotlibcpp.h:2851:29: error: no matching function for call to 'std::vector<double>::push_back(Eigen::DenseBase<Eigen::Matrix<double, -1, 1> >::ConstVectorIndexedViewType<double>)'  
+         for(auto x : ticks) y.push_back(f(x));
+                             ^
+In file included from c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\vector:64:0,
+                 from ./eigen/Eigen/Core:95,
+                 from ./eigen/Eigen/Dense:1,
+                 from ./code-translation/linear_regression.cpp:44:
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:914:7: note: candidate: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::value_type = double]
+       push_back(const value_type& __x)
+       ^~~~~~~~~
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:914:7: note:   no known conversion for argument 1 from 'Eigen::DenseBase<Eigen::Matrix<double, -1, 1> >::ConstVectorIndexedViewType<double> {aka Eigen::IndexedView<const Eigen::Matrix<double, -1, 1>, double, Eigen::internal::SingleRange<0> >}' to 'const value_type& {aka const double&}'
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:932:7: note: candidate: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = double; _Alloc = std::allocator<double>; std::vector<_Tp, _Alloc>::value_type = double]
+       push_back(value_type&& __x)
+       ^~~~~~~~~
+c:\mingw\lib\gcc\mingw32\6.3.0\include\c++\bits\stl_vector.h:932:7: note:   no known conversion for argument 1 from 'Eigen::DenseBase<Eigen::Matrix<double, -1, 1> >::ConstVectorIndexedViewType<double> {aka Eigen::IndexedView<const Eigen::Matrix<double, -1, 1>, double, Eigen::internal::SingleRange<0> >}' to 'std::vector<double>::value_type&& {aka double&&}'
+
+
+
+Cannot be demonstrated as of now/Need to find out some good example wherein both the python and the cpp code works. 
